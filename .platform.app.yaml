@@ -145,3 +145,13 @@ crons:
     drupal:
         spec: '*/19 * * * *'
         cmd: 'cd web ; drush core-cron'
+
+
+source:
+    operations:
+        upstream-update:
+            command: |
+                set -e
+                composer update
+                git add composer.lock
+                git commit -m "Update Composer dependencies."
